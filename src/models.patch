@@ -1,0 +1,619 @@
+diff -ur ./selling-partner-api-models/models/authorization-api-model/authorization.json ./selling-partner-api-models.patched/models/authorization-api-model/authorization.json
+--- ./selling-partner-api-models/models/authorization-api-model/authorization.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/authorization-api-model/authorization.json	2020-12-28 16:01:14.000000000 -0700
+@@ -243,10 +243,10 @@
+       "type": "array",
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "description": "Error response returned when the request is unsuccessful.",
+       "type": "object",
+       "required": [
+diff -ur ./selling-partner-api-models/models/catalog-items-api-model/catalogItemsV0.json ./selling-partner-api-models.patched/models/catalog-items-api-model/catalogItemsV0.json
+--- ./selling-partner-api-models/models/catalog-items-api-model/catalogItemsV0.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/catalog-items-api-model/catalogItemsV0.json	2020-12-28 16:01:14.000000000 -0700
+@@ -1821,10 +1821,10 @@
+       "type": "array",
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "type": "object",
+       "required": [
+         "code",
+diff -ur ./selling-partner-api-models/models/fba-inbound-eligibility-api-model/fbaInbound.json ./selling-partner-api-models.patched/models/fba-inbound-eligibility-api-model/fbaInbound.json
+--- ./selling-partner-api-models/models/fba-inbound-eligibility-api-model/fbaInbound.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/fba-inbound-eligibility-api-model/fbaInbound.json	2020-12-28 16:01:14.000000000 -0700
+@@ -598,10 +598,10 @@
+       "type": "array",
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "type": "object",
+       "required": [
+         "code"
+diff -ur ./selling-partner-api-models/models/fba-inventory-api-model/fbaInventory.json ./selling-partner-api-models.patched/models/fba-inventory-api-model/fbaInventory.json
+--- ./selling-partner-api-models/models/fba-inventory-api-model/fbaInventory.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/fba-inventory-api-model/fbaInventory.json	2020-12-28 16:01:14.000000000 -0700
+@@ -279,7 +279,7 @@
+         }
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "description": "An error response returned when the request is unsuccessful.",
+       "properties": {
+         "code": {
+@@ -304,7 +304,7 @@
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "type": "array",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     }
+   },
+diff -ur ./selling-partner-api-models/models/fba-small-and-light-api-model/fbaSmallandLight.json ./selling-partner-api-models.patched/models/fba-small-and-light-api-model/fbaSmallandLight.json
+--- ./selling-partner-api-models/models/fba-small-and-light-api-model/fbaSmallandLight.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/fba-small-and-light-api-model/fbaSmallandLight.json	2020-12-28 16:01:14.000000000 -0700
+@@ -32,7 +32,7 @@
+       "description": "Identifies an item in the given marketplace. SellerSKU is qualified by the seller's SellerId, which is included with every operation that you submit.",
+       "type": "string"
+     },
+-    "Error": {
++    "ApiError": {
+       "type": "object",
+       "required": [
+         "code",
+@@ -61,7 +61,7 @@
+         "errors": {
+           "type": "array",
+           "items": {
+-            "$ref": "#/definitions/Error"
++            "$ref": "#/definitions/ApiError"
+           }
+         }
+       }
+diff -ur ./selling-partner-api-models/models/feeds-api-model/feeds_2020-09-04.json ./selling-partner-api-models.patched/models/feeds-api-model/feeds_2020-09-04.json
+--- ./selling-partner-api-models/models/feeds-api-model/feeds_2020-09-04.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/feeds-api-model/feeds_2020-09-04.json	2020-12-28 16:01:14.000000000 -0700
+@@ -1157,7 +1157,7 @@
+     }
+   },
+   "definitions": {
+-    "Error": {
++    "ApiError": {
+       "type": "object",
+       "required": [
+         "code",
+@@ -1183,7 +1183,7 @@
+       "type": "array",
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+     "CancelFeedResponse": {
+diff -ur ./selling-partner-api-models/models/finances-api-model/financesV0.json ./selling-partner-api-models.patched/models/finances-api-model/financesV0.json
+--- ./selling-partner-api-models/models/finances-api-model/financesV0.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/finances-api-model/financesV0.json	2020-12-28 16:01:51.000000000 -0700
+@@ -1206,7 +1206,7 @@
+         },
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "AdjustmentAmount": {
+           "description": "The amount adjusted as part of this event.",
+@@ -1281,7 +1281,7 @@
+         },
+         "PostedDate": {
+           "description": "The date and time when the financial event was created.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "MarketplaceId": {
+           "description": "An encrypted, Amazon-defined marketplace identifier.",
+@@ -1375,7 +1375,7 @@
+       "properties": {
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "CouponId": {
+           "description": "A coupon identifier.",
+@@ -1427,7 +1427,7 @@
+         }
+       }
+     },
+-    "Date": {
++    "ApiDate": {
+       "type": "string",
+       "format": "date-time"
+     },
+@@ -1476,11 +1476,11 @@
+         },
+         "GroupBeginDate": {
+           "description": "The beginning date and time of the financial event group that contains the debt. In ISO 8601 date time format.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "GroupEndDate": {
+           "description": "The ending date and time of the financial event group that contains the debt. In ISO 8601 date time format.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         }
+       }
+     },
+@@ -1518,7 +1518,7 @@
+       "properties": {
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "OriginalRemovalOrderId": {
+           "description": "The identifier for the original removal order.",
+@@ -1588,7 +1588,7 @@
+         },
+         "FundTransferDate": {
+           "description": "The date and time when the disbursement or charge was initiated. Only present for closed settlements. In ISO 8601 date time format.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "TraceId": {
+           "description": "The trace identifier used by sellers to look up transactions externally.",
+@@ -1604,11 +1604,11 @@
+         },
+         "FinancialEventGroupStart": {
+           "description": "The date and time at which the financial event group is opened. In ISO 8601 date time format.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "FinancialEventGroupEnd": {
+           "description": "The date and time at which the financial event group is closed. In ISO 8601 date time format.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         }
+       }
+     },
+@@ -1709,7 +1709,7 @@
+         },
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "FeeList": {
+           "description": "A list of fees associated with the event.",
+@@ -1809,7 +1809,7 @@
+         },
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "NetCoTransactionID": {
+           "description": "The identifier for the network item swap.",
+@@ -1854,7 +1854,7 @@
+         },
+         "TransactionPostedDate": {
+           "description": "The date and time when the payment transaction is posted. In ISO 8601 date time format.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "BusinessObjectType": {
+           "description": "The type of business object.",
+@@ -1903,7 +1903,7 @@
+       "properties": {
+         "postedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "transactionType": {
+           "description": "Indicates if the transaction is for a charge or a refund.\n\nPossible values:\n\n* charge - Charge\n\n* refund - Refund",
+@@ -1965,7 +1965,7 @@
+       "properties": {
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "OrderId": {
+           "description": "The identifier for the removal shipment order.",
+@@ -2053,7 +2053,7 @@
+         },
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "RentalChargeList": {
+           "description": "A list of charges associated with the rental event.",
+@@ -2102,7 +2102,7 @@
+         },
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "BaseTax": {
+           "description": "The base tax associated with the retrocharge event.",
+@@ -2135,7 +2135,7 @@
+       "properties": {
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "SAFETClaimId": {
+           "description": "A SAFE-T claim identifier.",
+@@ -2192,7 +2192,7 @@
+       "properties": {
+         "postedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "dealId": {
+           "description": "The unique identifier of the deal.",
+@@ -2237,7 +2237,7 @@
+       "properties": {
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "EnrollmentId": {
+           "description": "An enrollment identifier.",
+@@ -2353,7 +2353,7 @@
+         },
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "ShipmentItemList": {
+           "$ref": "#/definitions/ShipmentItemList"
+@@ -2478,7 +2478,7 @@
+         },
+         "TransactionCreationDate": {
+           "description": "The date and time that the credit transaction was created, in ISO 8601 date time format.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         }
+       }
+     },
+@@ -2495,7 +2495,7 @@
+       "properties": {
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "TdsOrderId": {
+           "description": "A tax deduction at source (TDS) claim identifier.",
+@@ -2549,7 +2549,7 @@
+         },
+         "PostedDate": {
+           "description": "The date and time when the financial event was posted.",
+-          "$ref": "#/definitions/Date"
++          "$ref": "#/definitions/ApiDate"
+         },
+         "SKU": {
+           "description": "The seller SKU of the item. The seller SKU is qualified by the seller's seller ID, which is included with every call to the Selling Partner API.",
+@@ -2572,10 +2572,10 @@
+       "type": "array",
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "type": "object",
+       "required": [
+         "code",
+diff -ur ./selling-partner-api-models/models/fulfillment-inbound-api-model/fulfillmentInboundV0.json ./selling-partner-api-models.patched/models/fulfillment-inbound-api-model/fulfillmentInboundV0.json
+--- ./selling-partner-api-models/models/fulfillment-inbound-api-model/fulfillmentInboundV0.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/fulfillment-inbound-api-model/fulfillmentInboundV0.json	2020-12-28 16:01:14.000000000 -0700
+@@ -3583,7 +3583,7 @@
+     }
+   },
+   "definitions": {
+-    "Error": {
++    "ApiError": {
+       "type": "object",
+       "required": [
+         "code",
+@@ -3609,7 +3609,7 @@
+       "type": "array",
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+     "ASINInboundGuidance": {
+diff -ur ./selling-partner-api-models/models/fulfillment-outbound-api-model/fulfillmentOutbound_2020-07-01.json ./selling-partner-api-models.patched/models/fulfillment-outbound-api-model/fulfillmentOutbound_2020-07-01.json
+--- ./selling-partner-api-models/models/fulfillment-outbound-api-model/fulfillmentOutbound_2020-07-01.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/fulfillment-outbound-api-model/fulfillmentOutbound_2020-07-01.json	2020-12-28 16:01:14.000000000 -0700
+@@ -3264,7 +3264,7 @@
+     }
+   },
+   "definitions": {
+-    "Error": {
++    "ApiError": {
+       "type": "object",
+       "required": [
+         "code",
+@@ -3290,7 +3290,7 @@
+       "type": "array",
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+     "Address": {
+diff -ur ./selling-partner-api-models/models/merchant-fulfillment-api-model/merchantFulfillmentV0.json ./selling-partner-api-models.patched/models/merchant-fulfillment-api-model/merchantFulfillmentV0.json
+--- ./selling-partner-api-models/models/merchant-fulfillment-api-model/merchantFulfillmentV0.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/merchant-fulfillment-api-model/merchantFulfillmentV0.json	2020-12-28 16:01:14.000000000 -0700
+@@ -2050,7 +2050,7 @@
+     }
+   },
+   "definitions": {
+-    "Error": {
++    "ApiError": {
+       "type": "object",
+       "required": [
+         "code",
+@@ -2076,7 +2076,7 @@
+       "type": "array",
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+     "LabelFormatOptionRequest": {
+diff -ur ./selling-partner-api-models/models/messaging-api-model/messaging.json ./selling-partner-api-models.patched/models/messaging-api-model/messaging.json
+--- ./selling-partner-api-models/models/messaging-api-model/messaging.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/messaging-api-model/messaging.json	2020-12-28 16:01:14.000000000 -0700
+@@ -3175,10 +3175,10 @@
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "type": "array",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "description": "Error response returned when the request is unsuccessful.",
+       "properties": {
+         "code": {
+diff -ur ./selling-partner-api-models/models/notifications-api-model/notifications.json ./selling-partner-api-models.patched/models/notifications-api-model/notifications.json
+--- ./selling-partner-api-models/models/notifications-api-model/notifications.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/notifications-api-model/notifications.json	2020-12-28 16:01:14.000000000 -0700
+@@ -303,10 +303,10 @@
+       "description":"A list of error responses returned when a request is unsuccessful.",
+       "type":"array",
+       "items":{
+-        "$ref":"#/definitions/Error"
++        "$ref":"#/definitions/ApiError"
+       }
+     },
+-    "Error":{
++    "ApiError":{
+       "description":"Error response returned when the request is unsuccessful.",
+       "required":[
+         "code",
+diff -ur ./selling-partner-api-models/models/orders-api-model/ordersV0.json ./selling-partner-api-models.patched/models/orders-api-model/ordersV0.json
+--- ./selling-partner-api-models/models/orders-api-model/ordersV0.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/orders-api-model/ordersV0.json	2020-12-28 16:01:14.000000000 -0700
+@@ -2306,10 +2306,10 @@
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "type": "array",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "description": "Error response returned when the request is unsuccessful.",
+       "type": "object",
+       "required": [
+diff -ur ./selling-partner-api-models/models/product-fees-api-model/productFeesV0.json ./selling-partner-api-models.patched/models/product-fees-api-model/productFeesV0.json
+--- ./selling-partner-api-models/models/product-fees-api-model/productFeesV0.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/product-fees-api-model/productFeesV0.json	2020-12-28 16:01:14.000000000 -0700
+@@ -120,7 +120,7 @@
+                         },
+                         "FeeDetailList": []
+                       },
+-                      "Error": {
++                      "ApiError": {
+                         "Type": "",
+                         "Code": "",
+                         "Message": "",
+@@ -553,10 +553,10 @@
+       "type": "array",
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "type": "object",
+       "required": [
+         "code",
+diff -ur ./selling-partner-api-models/models/product-pricing-api-model/productPricingV0.json ./selling-partner-api-models.patched/models/product-pricing-api-model/productPricingV0.json
+--- ./selling-partner-api-models/models/product-pricing-api-model/productPricingV0.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/product-pricing-api-model/productPricingV0.json	2020-12-28 16:01:14.000000000 -0700
+@@ -2527,7 +2527,7 @@
+       "type": "array",
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+     "DetailedShippingTimeType" : {
+@@ -2587,7 +2587,7 @@
+         }
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "description": "Error response returned when the request is unsuccessful.",
+       "type": "object",
+       "required": [
+diff -ur ./selling-partner-api-models/models/reports-api-model/reports_2020-09-04.json ./selling-partner-api-models.patched/models/reports-api-model/reports_2020-09-04.json
+--- ./selling-partner-api-models/models/reports-api-model/reports_2020-09-04.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/reports-api-model/reports_2020-09-04.json	2020-12-28 16:01:14.000000000 -0700
+@@ -1675,10 +1675,10 @@
+       "type": "array",
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "type": "object",
+       "required": [
+         "code",
+diff -ur ./selling-partner-api-models/models/sales-api-model/sales.json ./selling-partner-api-models.patched/models/sales-api-model/sales.json
+--- ./selling-partner-api-models/models/sales-api-model/sales.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/sales-api-model/sales.json	2020-12-28 16:01:14.000000000 -0700
+@@ -101,7 +101,7 @@
+         "unitCount"
+       ]
+     },
+-    "Error":
++    "ApiError":
+     {
+       "description": "Error response returned when the request is unsuccessful.",
+       "properties":
+@@ -134,7 +134,7 @@
+       "type": "array",
+       "items":
+       {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+     "Money":
+diff -ur ./selling-partner-api-models/models/sellers-api-model/sellers.json ./selling-partner-api-models.patched/models/sellers-api-model/sellers.json
+--- ./selling-partner-api-models/models/sellers-api-model/sellers.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/sellers-api-model/sellers.json	2020-12-28 16:01:14.000000000 -0700
+@@ -24,7 +24,7 @@
+     "application/json"
+   ],
+   "definitions": {
+-    "Error": {
++    "ApiError": {
+       "description": "Error response returned when the request is unsuccessful.",
+       "properties": {
+         "code": {
+@@ -50,7 +50,7 @@
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "type": "array",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+     "MarketplaceParticipation": {
+diff -ur ./selling-partner-api-models/models/services-api-model/services.json ./selling-partner-api-models.patched/models/services-api-model/services.json
+--- ./selling-partner-api-models/models/services-api-model/services.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/services-api-model/services.json	2020-12-28 16:01:14.000000000 -0700
+@@ -689,10 +689,10 @@
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "type": "array",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "description": "Error response returned when the request is unsuccessful.",
+       "properties": {
+         "code": {
+diff -ur ./selling-partner-api-models/models/shipping-api-model/shipping.json ./selling-partner-api-models.patched/models/shipping-api-model/shipping.json
+--- ./selling-partner-api-models/models/shipping-api-model/shipping.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/shipping-api-model/shipping.json	2020-12-28 16:01:14.000000000 -0700
+@@ -24,7 +24,7 @@
+     "application/json"
+   ],
+   "definitions": {
+-    "Error": {
++    "ApiError": {
+       "description": "Error response returned when the request is unsuccessful.",
+       "properties": {
+         "code": {
+@@ -49,7 +49,7 @@
+     "ErrorList": {
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       },
+       "type": "array"
+     },
+diff -ur ./selling-partner-api-models/models/solicitations-api-model/solicitations.json ./selling-partner-api-models.patched/models/solicitations-api-model/solicitations.json
+--- ./selling-partner-api-models/models/solicitations-api-model/solicitations.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/solicitations-api-model/solicitations.json	2020-12-28 16:01:14.000000000 -0700
+@@ -512,10 +512,10 @@
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "type": "array",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "description": "Error response returned when the request is unsuccessful.",
+       "properties": {
+         "code": {
+diff -ur ./selling-partner-api-models/models/uploads-api-model/uploads_2020-11-01.json ./selling-partner-api-models.patched/models/uploads-api-model/uploads_2020-11-01.json
+--- ./selling-partner-api-models/models/uploads-api-model/uploads_2020-11-01.json	2020-12-26 07:46:02.000000000 -0700
++++ ./selling-partner-api-models.patched/models/uploads-api-model/uploads_2020-11-01.json	2020-12-28 16:01:14.000000000 -0700
+@@ -227,10 +227,10 @@
+       "description": "A list of error responses returned when a request is unsuccessful.",
+       "type": "array",
+       "items": {
+-        "$ref": "#/definitions/Error"
++        "$ref": "#/definitions/ApiError"
+       }
+     },
+-    "Error": {
++    "ApiError": {
+       "description": "Error response returned when the request is unsuccessful.",
+       "properties": {
+         "code": {

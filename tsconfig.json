@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "target": "es6",
+    "sourceMap": true,
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "outDir": "lib",
+    "rootDir": "./gen",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "selling-partner-api-models",
+    "selling-partner-api-models.patched",
+    "src",
+    "gen.patched",
+    "gen.back"
+  ]
+}

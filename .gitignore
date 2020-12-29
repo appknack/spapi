@@ -1,0 +1,5 @@
+gen
+gen.patched
+node_modules
+selling-partner-api-models.patched
+lib

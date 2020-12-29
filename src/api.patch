@@ -1,0 +1,42 @@
+diff -ur ./gen/catalog-items-api-model/apis/catalog-api.ts ./patched/catalog-items-api-model/apis/catalog-api.ts
+--- ./gen/catalog-items-api-model/apis/catalog-api.ts	2020-12-28 14:48:29.000000000 -0700
++++ ./patched/catalog-items-api-model/apis/catalog-api.ts	2020-12-28 14:53:25.000000000 -0700
+@@ -186,14 +186,14 @@
+                 localVarQueryParameter['JAN'] = JAN;
+             }
+ 
+-            const query = new URLSearchParams(localVarUrlObj.search);
++            const queryParms = new URLSearchParams(localVarUrlObj.search);
+             for (const key in localVarQueryParameter) {
+-                query.set(key, localVarQueryParameter[key]);
++                queryParms.set(key, localVarQueryParameter[key]);
+             }
+             for (const key in options.query) {
+-                query.set(key, options.query[key]);
++                queryParms.set(key, options.query[key]);
+             }
+-            localVarUrlObj.search = (new URLSearchParams(query)).toString();
++            localVarUrlObj.search = (new URLSearchParams(queryParms)).toString();
+             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+ 
+diff -ur ./gen/feeds-api-model/models/feed-options.ts ./patched/feeds-api-model/models/feed-options.ts
+--- ./gen/feeds-api-model/models/feed-options.ts	2020-12-28 14:52:15.000000000 -0700
++++ ./patched/feeds-api-model/models/feed-options.ts	2020-12-28 14:53:47.000000000 -0700
+@@ -16,5 +16,5 @@
+  * @export
+  * @interface FeedOptions
+  */
+-export interface FeedOptions extends null<String, string> {
++export interface FeedOptions extends Map<string, string> {
+ }
+diff -ur ./gen/reports-api-model/models/report-options.ts ./patched/reports-api-model/models/report-options.ts
+--- ./gen/reports-api-model/models/report-options.ts	2020-12-28 14:52:16.000000000 -0700
++++ ./patched/reports-api-model/models/report-options.ts	2020-12-28 14:54:05.000000000 -0700
+@@ -16,5 +16,5 @@
+  * @export
+  * @interface ReportOptions
+  */
+-export interface ReportOptions extends null<String, string> {
++export interface ReportOptions extends Map<string, string> {
+ }

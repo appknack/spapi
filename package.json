@@ -1,0 +1,43 @@
+{
+  "name": "spapi",
+  "version": "1.0.0",
+  "description": "Amazon Selling Partner API",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gen": "node src/gen.js",
+    "merge": "node src/merge.js",
+    "compile": "tsc -p .",
+    "prepublishOnly": "npm run build",
+
+    "patch:models:prep": "cp -R ./selling-partner-api-models ./selling-partner-api-models.patched",
+    "patch:models:create": "diff -ur ./selling-partner-api-models ./selling-partner-api-models.patched >> ./src/models.patch",
+    "patch:models:clean": "npx rimraf ./selling-partner-api-models.patched",
+    "patch:models:apply": "patch -p0 < ./src/models.patch",
+
+    "patch:api:prep": "cp -R ./gen ./gen.patched",
+    "patch:api:create": "diff -ur ./gen ./gen.patched >> ./src/api.patch",
+    "patch:api:clean": "npx rimraf ./gen.patched",
+    "patch:api:apply": "patch -p0 < ./src/api.patch",
+
+    "clean": "npx rimraf ./lib ./gen ./gen.patched",
+    "build": "npm run patch:models:apply && npm run gen && npm run merge && npm run patch:api:apply && npm run compile"
+  },
+  "keywords": [
+    "amazon",
+    "spapi"
+  ],
+  "author": "Dan Axtman",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.11.5",
+    "copyfiles": "^2.4.1",
+    "mkdirp": "^1.0.4",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
