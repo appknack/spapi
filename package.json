@@ -1,5 +1,5 @@
 {
-  "name": "spapi",
+  "name": "@appknack/spapi",
   "version": "1.0.0",
   "description": "Amazon Selling Partner API",
   "main": "lib/index.js",
