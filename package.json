@@ -13,7 +13,6 @@
     "gen": "node src/gen.js",
     "merge": "node src/merge.js",
     "compile": "tsc -p .",
-    "prepublishOnly": "npm run build",
 
     "patch:models:prep": "cp -R ./selling-partner-api-models ./selling-partner-api-models.patched",
     "patch:models:create": "diff -ur ./selling-partner-api-models ./selling-partner-api-models.patched >> ./src/models.patch",

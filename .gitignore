@@ -1,5 +1,6 @@
-gen
-gen.patched
-node_modules
-selling-partner-api-models.patched
-lib
+/gen
+/gen.patched
+/node_modules
+/selling-partner-api-models.patched
+/selling-partner-api-models
+/lib
